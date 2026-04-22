@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LR9_Intents</string>
+    <string-array name="phone_numbers">
+        <item>+7(999)111-22-33</item>
+        <item>+7(800)555-35-35</item>
+        <item>112</item>
+    </string-array>
+</resources>
