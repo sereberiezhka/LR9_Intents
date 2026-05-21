@@ -1,5 +1,6 @@
 package com.example.lr9_intents;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -20,9 +21,9 @@ public class BrowserActivity extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new MyWebViewClient());
 
-        String url = getIntent().getStringExtra("url");
-        if (url != null) {
-            webView.loadUrl(url);
+        Uri urlData = getIntent().getData();
+        if (urlData != null) {
+            webView.loadUrl(urlData.toString());
         }
 
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {

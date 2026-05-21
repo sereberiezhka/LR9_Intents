@@ -83,17 +83,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onOpenBrowserClick(View view) {
-        Button b = (Button) view;
-        String url = "";
+        // 1. Создаем намерение открыть ссылку (как на стр. 12 методички)
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://ru.wikipedia.org"));
 
-        if (b.getText().toString().contains("Google")) {
-            url = "https://www.google.com";
-        } else {
-            url = "https://ru.wikipedia.org";
-        }
+        // 2. Создаем "Выбиральщик" (Chooser)
+        // Он принудительно покажет список всех браузеров, включая Chrome
+        Intent chooser = Intent.createChooser(intent, "Выберите браузер:");
 
-        Intent intent = new Intent(this, BrowserActivity.class);
-        intent.putExtra("url", url);
-        startActivity(intent);
+        // 3. Запускаем именно chooser
+        startActivity(chooser);
     }
 }
